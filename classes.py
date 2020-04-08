@@ -10,12 +10,12 @@ class Store:
         return sum([item['price'] for item in self.items])
 
     @classmethod
-    def franchise(cls, name):
-        print(cls(name + '- franchise'))
+    def franchise(cls, store):
+        return cls(store.name + ' - franchise')  #returns a Store object
 
     @staticmethod
     def store_details(store):
-        return f'{store}, total stock price: {store.stock_price()}'
+        print(f'{store.name}, total stock price: {store.stock_price()}')
 
 
 
@@ -26,4 +26,6 @@ monop.add_item('rice', 2.40)
 print(monop.items)
 print(monop.stock_price())
 
-Store.franchise('monop')
+monopf = Store.franchise(monop)
+print(monopf.name)
+Store.store_details(monop)
